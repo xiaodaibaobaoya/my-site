@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>正在播放 · 视频中心</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .play-page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 880px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 26px 16px 40px;
+    }
+
+    .play-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .play-top .btn-ghost {
+      letter-spacing: 0;
+      padding: 9px 16px;
+      font-size: 13px;
+      margin-top: 0;
+    }
+
+    .player-card {
+      background: rgba(30, 22, 60, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: 0 20px 50px rgba(120, 60, 120, 0.35);
+    }
+
+    .player-card video {
+      width: 100%;
+      border-radius: 14px;
+      background: #000;
+      display: block;
+      aspect-ratio: 16 / 9;
+      max-height: 62vh;
+      object-fit: contain;
+      outline: none;
+    }
+
+    .video-detail {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 8px 22px rgba(255, 107, 157, 0.12);
+    }
+
+    .video-detail h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-strong);
+      margin-bottom: 8px;
+    }
+
+    .video-detail .desc {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .video-detail .meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .type-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .type-badge.url { background: #ffe0ec; color: #e75480; }
+    .type-badge.file { background: #efe4ff; color: #8b5cf6; }
+
+    .loading-tip, .error-tip {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 60px 0;
+      font-size: 15px;
+    }
+  </style>
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="theme-color" content="#ff6b9d" />
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="play-page">
+    <div class="play-top">
+      <button class="btn-ghost" id="btn-back">← 返回视频列表</button>
+    </div>
+
+    <div id="player-wrap" class="player-card" hidden>
+      <video id="player" controls playsinline></video>
+    </div>
+
+    <div id="detail" class="video-detail" hidden>
+      <h1 id="v-title"></h1>
+      <div class="desc" id="v-desc"></div>
+      <div class="meta">
+        <span id="v-type"></span>
+        <span id="v-meta"></span>
+      </div>
+    </div>
+
+    <div class="loading-tip" id="loading">加载中…</div>
+    <div class="error-tip" id="error" hidden>😢 视频不存在或已被删除</div>
+  </main>
+
+  <script>
+    (async function () {
+      'use strict';
+
+      // 检查登录状态
+      try {
+        const res = await fetch('/api/me', { credentials: 'same-origin' });
+        if (!res.ok) {
+          window.location.href = '/index.html';
+          return;
+        }
+      } catch {
+        window.location.href = '/index.html';
+        return;
+      }
+
+      document.getElementById('btn-back').addEventListener('click', () => {
+        window.location.href = '/videos.html';
+      });
+
+      const id = new URLSearchParams(window.location.search).get('id');
+      const loading = document.getElementById('loading');
+      const error = document.getElementById('error');
+
+      if (!id) {
+        loading.hidden = true;
+        error.hidden = false;
+        return;
+      }
+
+      let video = null;
+      try {
+        const res = await fetch('/api/videos', { credentials: 'same-origin' });
+        const data = await res.json();
+        video = (data.videos || []).find((v) => v.id === id);
+      } catch { /* 忽略 */ }
+
+      if (!video) {
+        loading.hidden = true;
+        error.hidden = false;
+        return;
+      }
+
+      loading.hidden = true;
+      document.getElementById('player-wrap').hidden = false;
+      document.getElementById('detail').hidden = false;
+
+      document.title = video.title + ' · 视频中心';
+      document.getElementById('v-title').textContent = video.title;
+      document.getElementById('v-desc').textContent = video.description || '暂无简介';
+      document.getElementById('v-type').innerHTML =
+        `<span class="type-badge ${video.type === 'file' ? 'file' : 'url'}">${video.type === 'file' ? '本站视频' : '网络视频'}</span>`;
+      document.getElementById('v-meta').textContent =
+        (video.addedBy === 'system' ? '系统预置' : '由 ' + video.addedBy + ' 添加') +
+        ' · ' + new Date(video.createdAt).toLocaleString('zh-CN');
+
+      const player = document.getElementById('player');
+      player.src = video.url;
+
+      // 播放失败时给出明确提示
+      player.addEventListener('error', () => {
+        document.getElementById('player-wrap').hidden = true;
+        error.textContent = '😢 视频加载失败：可能是网络不通，或该视频地址不可用';
+        error.hidden = false;
+      });
+
+      player.play().catch(() => {
+        // 自动播放被浏览器拦截时，提示用户手动点击播放
+        toastPlay();
+      });
+
+      function toastPlay() {
+        const tip = document.createElement('div');
+        tip.style.cssText = 'text-align:center;color:#a58ba0;font-size:13px;padding:8px 0 0;';
+        tip.textContent = '▶ 点击播放器中的播放按钮开始观看';
+        document.getElementById('player-wrap').after(tip);
+        player.addEventListener('play', () => tip.remove());
+      }
+    })();
+  </script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>

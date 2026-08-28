@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登录 · 欢迎回来</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="theme-color" content="#ff6b9d" />
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="auth-card">
+    <div class="brand">
+      <div class="brand-logo">🎀</div>
+      <h1>我的账户</h1>
+      <p class="brand-sub">欢迎回来，一起玩耍吧 ✨</p>
+    </div>
+
+    <!-- 顶部标签切换 -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="login" role="tab" aria-selected="true">登录</button>
+      <button class="tab" data-tab="register" role="tab" aria-selected="false">注册</button>
+    </div>
+
+    <!-- 消息提示 -->
+    <div id="message" class="message" role="alert" hidden></div>
+
+    <!-- ======== 登录面板 ======== -->
+    <form id="login-form" class="panel active" novalidate>
+      <div class="field">
+        <label for="login-username">用户名</label>
+        <input type="text" id="login-username" placeholder="请输入用户名" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="login-password">密码</label>
+        <input type="password" id="login-password" placeholder="请输入密码" autocomplete="current-password" required />
+      </div>
+      <div class="row-between">
+        <label class="checkbox">
+          <input type="checkbox" id="remember" />
+          <span>记住我（7 天内免登录）</span>
+        </label>
+      </div>
+      <button type="submit" class="btn-primary" id="login-btn">登 录</button>
+    </form>
+
+    <!-- ======== 注册面板 ======== -->
+    <form id="register-form" class="panel" novalidate>
+      <div class="field">
+        <label for="reg-username">用户名</label>
+        <input type="text" id="reg-username" placeholder="2-20 位，字母 / 数字 / 下划线 / 中文" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="reg-password">密码</label>
+        <input type="password" id="reg-password" placeholder="至少 6 位" autocomplete="new-password" required />
+      </div>
+      <div class="field">
+        <label for="reg-confirm">确认密码</label>
+        <input type="password" id="reg-confirm" placeholder="再次输入密码" autocomplete="new-password" required />
+      </div>
+      <button type="submit" class="btn-primary" id="register-btn">注 册</button>
+    </form>
+
+    <div class="app-download">
+      <a href="/app-download.apk" download>📱 下载 Android App</a>
+      <span class="app-download-sub">版本 1.1 · 28KB · 需本机服务器运行</span>
+    </div>
+
+    <footer class="card-footer">
+      演示项目 · 数据保存在服务器 <code>data/users.json</code>
+    </footer>
+  </main>
+
+  <script src="js/animations.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>

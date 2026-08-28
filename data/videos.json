@@ -1,0 +1,502 @@
+[
+  {
+    "id": "58b283c2-d781-4fc6-8f94-43f3e25b133b",
+    "title": "🐰 大雄兔 Big Buck Bunny",
+    "description": "Blender 基金会出品的开源动画电影：一只温柔的大兔子用恶作剧教训三只捣蛋的小动物，画风可爱，全程无对白。（10 秒节选）",
+    "type": "file",
+    "url": "/uploads/videos/anime-big-buck-bunny-10s.mp4",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T03:00:14.865Z",
+    "category": "动画"
+  },
+  {
+    "id": "84dd34db-78f2-430f-ae18-909d05b1355b",
+    "title": "🧚 辛特尔 Sintel",
+    "description": "Blender 基金会的开源动画短片：少女辛特尔为找回小龙幼崽踏上艰难旅程，画面唯美、故事动人。（10 秒节选）",
+    "type": "file",
+    "url": "/uploads/videos/anime-sintel-10s.mp4",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T03:00:15.865Z",
+    "category": "动画"
+  },
+  {
+    "id": "b855d57b-7cc0-4612-b9e7-41cee05172c5",
+    "title": "🎬 大雄兔 · 官方预告片",
+    "description": "《大雄兔 Big Buck Bunny》官方预告片（W3C 公开测试视频）：短小精悍，30 秒感受这只温柔大兔子的可爱日常。",
+    "type": "file",
+    "url": "/uploads/videos/anime-bunny-trailer.mp4",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T03:00:16.865Z",
+    "category": "动画"
+  },
+  {
+    "id": "0cd780ed-bd48-4cdb-a371-944b1058c015",
+    "title": "🐻 熊出没·狂野大陆（B站）",
+    "description": "熊出没大电影系列（正版平台外链）：点击卡片跳转到 B 站观看完整版。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV15iu1zZEgP/",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T03:17:09.747Z",
+    "category": "动画"
+  },
+  {
+    "id": "1c25760f-5080-4479-9ca9-20cfc1857cc7",
+    "title": "🐻 熊出没之变形记（B站）",
+    "description": "熊出没大电影（正版平台外链）：点击卡片跳转到 B 站观看完整版。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1kkoZYUEEh/",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T03:17:09.775Z",
+    "category": "动画"
+  },
+  {
+    "id": "17516ff6-c69f-4394-b8f0-a866b1d1a106",
+    "title": "🐻 熊出没之雪岭熊风（B站）",
+    "description": "熊出没大电影系列（正版平台外链）：点击卡片跳转到 B 站观看完整版。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV19iWVzBEgY/",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T03:23:10.705Z",
+    "category": "动画"
+  },
+  {
+    "id": "0de472c7-b38d-4312-9011-1ba7755ab93f",
+    "title": "和平精英",
+    "description": "",
+    "type": "file",
+    "url": "/uploads/videos/1787801916959_a37290a029a0.mp4",
+    "addedBy": "admin",
+    "createdAt": "2026-08-27T03:38:36.998Z",
+    "category": "其他"
+  },
+  {
+    "id": "f6e40498-065a-4afa-9e4d-cbaa99a6efb8",
+    "title": "🎬 辛特尔·官方预告片",
+    "description": "开源动画短片《辛特尔 Sintel》的官方预告（本地视频，永不失效）。",
+    "type": "file",
+    "url": "/uploads/videos/anime-sintel-trailer.mp4",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T07:33:08.956Z",
+    "category": "动画"
+  },
+  {
+    "id": "9b30b4fe-43a7-4106-b6d5-f7cdb0642c2f",
+    "title": "🐑 喜羊羊与灰太狼·原始世界历险记（B站）",
+    "description": "国产经典动画大电影（正版平台外链）：点击卡片跳转到 B 站观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1r2NM6rEJc/",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T07:33:08.959Z",
+    "category": "动画"
+  },
+  {
+    "id": "5be3af9d-6e09-4651-98b7-a99db2ae78fe",
+    "title": "🐱 猫和老鼠（B站）",
+    "description": "汤姆与杰瑞的经典追逐喜剧（正版平台外链）：点击卡片跳转到 B 站观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1FCgU6eETy/",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T07:33:08.959Z",
+    "category": "动画"
+  },
+  {
+    "id": "2b9d867f-fb23-4667-8f84-08b35cf47ace",
+    "title": "🐻 熊出没之熊芯归来（B站）",
+    "description": "熊出没大电影系列（正版平台外链）：点击卡片跳转到 B 站观看完整版。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1EeaqzqEC4/",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T07:33:08.959Z",
+    "category": "动画"
+  },
+  {
+    "id": "30294ef4-7a11-4d83-a50a-e61f9494e11b",
+    "title": "🐷 小猪佩奇·第十二季（B站）",
+    "description": "风靡全球的学前动画（正版平台外链）：点击卡片跳转到 B 站观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/media/md434887502",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T07:33:08.959Z",
+    "category": "儿童"
+  },
+  {
+    "id": "d50183e0-fe03-4cb7-a593-56196a4a0ec7",
+    "title": "秦时明月·第一季（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1zN6MBpErm/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.831Z"
+  },
+  {
+    "id": "dc40791a-48b0-41d6-b256-6162e07be044",
+    "title": "海贼王（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1w5G26YENq/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.832Z"
+  },
+  {
+    "id": "06d9b0ac-d6a4-4b85-a16a-49bdf99a5c4e",
+    "title": "火影忍者（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1Vggd6gEt2/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.832Z"
+  },
+  {
+    "id": "7e340d16-77b7-4089-8820-903c537a80aa",
+    "title": "名侦探柯南·剧场版（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1an846BEcj/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.832Z"
+  },
+  {
+    "id": "5a6bb05a-143b-409b-bfa0-6c44487fd1c9",
+    "title": "哆啦A梦·国语合集（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1ANP7zmE6a/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.832Z"
+  },
+  {
+    "id": "f931ab5f-cc4b-4a4a-b7ff-1b2f20089af8",
+    "title": "新哆啦A梦（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1iw8o6AE48/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "1c75b04d-d49d-4fd7-b79e-3d7bbd0fcd06",
+    "title": "汪汪队立大功（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1oB4y1R7ZL/",
+    "category": "儿童",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "44530094-3b79-43c2-9e73-7296dede8832",
+    "title": "汪汪队·特辑（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV12vxTepEA7/",
+    "category": "儿童",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "ac47eee9-142d-4804-be6f-b0c1b7183f71",
+    "title": "宝宝巴士·儿歌3D版（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1ucbk6yEif/",
+    "category": "儿童",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "1892d8b7-f2cc-48d5-8bef-7bafe1c78a81",
+    "title": "天线宝宝·梦想再出发（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ss46695",
+    "category": "儿童",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "633b4399-2866-41f5-8c6d-a1f37674f65b",
+    "title": "舌尖上的中国4（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ep1687469",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "c938b62b-75bc-498b-bcd9-b0d985ee07da",
+    "title": "动物世界（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/media/md40272/",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "28e48e87-b420-4369-b96a-4183c75805ca",
+    "title": "我们的浩瀚宇宙（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/av517907270/",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "c9bfc70c-aca6-4ba1-a37b-bc3ab68c21e0",
+    "title": "舌尖上的中国·精选（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1BtzvBbEM5/",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "a5accae2-9353-4dd6-aef3-e35ee81881a8",
+    "title": "BBC·丘吉尔的一战（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1qqUCY7E8k/",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.833Z"
+  },
+  {
+    "id": "5c0b4d2e-bfb2-4f1f-a1a5-48d4698ab715",
+    "title": "动物世界·全集（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ss22801",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "f37771ba-0c15-4531-849f-ffbcfe059f9b",
+    "title": "老馆正浪·特厨隋坡（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ep2312987",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "b3b8edd7-8477-443c-9296-0a0c862d7c8c",
+    "title": "鹿鼎记·周星驰（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1FAgXztEz8/",
+    "category": "电影",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "2fe74c2a-bb39-4430-9694-b0811a12fc23",
+    "title": "喜剧之王·周星驰（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/av426988255/",
+    "category": "电影",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "f3436790-b63c-4916-9087-f763beb5ac3e",
+    "title": "衰老的秘密（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1bhgr6bEDH/",
+    "category": "科普",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "79bfa96a-bccf-4dc4-926f-c1c0283b5e20",
+    "title": "李永乐老师·科普频道（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://space.bilibili.com/9458053",
+    "category": "科普",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "c2d5509e-5f8a-4e31-ba75-99f0a9e900bb",
+    "title": "无穷小亮·科普日常（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://space.bilibili.com/14804670",
+    "category": "科普",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "84373673-fb4a-453a-90dc-60824a1dca4b",
+    "title": "英雄联盟·季中冠军赛（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1yW7Y62EsG/",
+    "category": "游戏",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "2a38126a-85d9-4bea-800b-46734f3ba08a",
+    "title": "最后生还者·实况攻略（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1J5dFBuEgn/",
+    "category": "游戏",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "bc719fbe-da31-4b4e-bc09-1a79a150623f",
+    "title": "原神·官方频道（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://space.bilibili.com/401742377",
+    "category": "游戏",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "04507721-1552-4a6e-9f0a-7948d3617c10",
+    "title": "潘玮柏·思念是一种病MV（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1hLSTBFEUy/",
+    "category": "其他",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "cd926038-e3ca-446d-95a1-86c75b059bee",
+    "title": "香港之旅·解锁中国（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1HNPiz8EVT/",
+    "category": "其他",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "1eadca08-4ee3-4fd6-a398-949c0c4d84e6",
+    "title": "清华大学·普通物理（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1HTWtzREPo/",
+    "category": "其他",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:06:05.834Z"
+  },
+  {
+    "id": "1c16d036-6531-42a9-ac6a-097ad503e58a",
+    "title": "魔女宅急便·宫崎骏（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1bZCcYNEuu/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.472Z"
+  },
+  {
+    "id": "89150187-bb99-47e5-a9ee-da79ae8537f7",
+    "title": "海绵宝宝历险记·央配国语（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1JF8P69E2h/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.474Z"
+  },
+  {
+    "id": "d8b37fdb-2f59-4619-bed9-c3039c245d27",
+    "title": "奥特曼·中文版（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/av990732853/",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.474Z"
+  },
+  {
+    "id": "c22edd7b-ddfd-44c3-a846-c6373ccc0071",
+    "title": "海绵宝宝·第一至九季（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ep469115",
+    "category": "动画",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.474Z"
+  },
+  {
+    "id": "015c99e8-391b-41a4-83c1-9e5192a4f232",
+    "title": "蓝色星球（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/media/md20490",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.474Z"
+  },
+  {
+    "id": "45b72741-f613-48a5-b9a6-d701bfce269e",
+    "title": "地球脉动（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ss20302",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.474Z"
+  },
+  {
+    "id": "e6cd9a21-f6c9-4f6d-9980-c9437c6f0c83",
+    "title": "航拍中国·4K合集（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/video/BV1tKzVY9En5/",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.474Z"
+  },
+  {
+    "id": "86cf22bb-3aa0-41a5-861d-d23164f72a11",
+    "title": "蓝色星球·中配版（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ep4599683",
+    "category": "纪录片",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.475Z"
+  },
+  {
+    "id": "a1492381-1e00-49c6-ab82-6cb38e455406",
+    "title": "星际穿越（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/media/md28222680",
+    "category": "电影",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.475Z"
+  },
+  {
+    "id": "95bbebfb-4581-4211-be47-80c6de88b175",
+    "title": "星际穿越·正片（B站）",
+    "description": "B 站正版外链：点击卡片跳转观看。",
+    "type": "external",
+    "url": "https://www.bilibili.com/bangumi/play/ep285026",
+    "category": "电影",
+    "addedBy": "system",
+    "createdAt": "2026-08-27T08:07:43.475Z"
+  }
+]

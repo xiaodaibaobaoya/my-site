@@ -1,0 +1,16 @@
+[
+  {
+    "token": "5439df8d944719a957396641f348979aa36b6551308461b9636d5316e5409911",
+    "username": "admin",
+    "createdAt": 1787797727731,
+    "expiresAt": 1788402527731,
+    "remember": true
+  },
+  {
+    "token": "6a45cf795f3ebd9153384957865a162df24ddcf68dfcbc24ad78c8cee0bdcaca",
+    "username": "admin",
+    "createdAt": 1787880169805,
+    "expiresAt": 1787887369805,
+    "remember": false
+  }
+]

@@ -1,0 +1,9 @@
+# 构建上下文忽略项
+.git
+tools
+*.log
+node_modules
+README.md
+Dockerfile
+.dockerignore
+server.log

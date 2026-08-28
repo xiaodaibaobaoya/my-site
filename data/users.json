@@ -1,0 +1,11 @@
+[
+  {
+    "role": "admin",
+    "status": "active",
+    "id": "845c1245-74f3-4568-8285-4bdfa6be1e79",
+    "username": "admin",
+    "passwordHash": "d367fe5cf99ca28d84ec8709f9fcddebd4436bb9e0cb59ce37267cbc49b366aadd2428a5b1ce48f9a6d2276f28bd4f88e429a5045e9d6bbe1236ff9b22ddfcdb",
+    "salt": "6f6e48f277cba12bd8bec9a03f428cb8",
+    "createdAt": "2026-08-27T02:28:37.810Z"
+  }
+]

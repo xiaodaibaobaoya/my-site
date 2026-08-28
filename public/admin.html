@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>后台管理 · 我的账户</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="theme-color" content="#ff6b9d" />
+</head>
+<body class="admin-body">
+  <div class="admin-layout">
+
+    <!-- ======== 侧边栏 ======== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="sidebar-logo">🎀</span>
+        <span class="sidebar-title">后台管理</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-view="dashboard">
+          <span class="nav-icon">📊</span> 仪表盘
+        </a>
+        <a href="#" class="nav-item" data-view="users">
+          <span class="nav-icon">👥</span> 用户管理
+        </a>
+        <a href="#" class="nav-item" data-view="videos">
+          <span class="nav-icon">🎬</span> 视频管理
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" class="nav-item">
+          <span class="nav-icon">🏠</span> 返回前台
+        </a>
+        <button class="nav-item nav-btn" id="btn-logout">
+          <span class="nav-icon">🚪</span> 退出登录
+        </button>
+      </div>
+    </aside>
+
+    <!-- ======== 主区域 ======== -->
+    <div class="admin-main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-toggle" aria-label="菜单">☰</button>
+        <h2 class="page-title" id="page-title">仪表盘</h2>
+        <div class="topbar-user">
+          <span class="topbar-hello">👋</span>
+          <span id="admin-name">…</span>
+          <span class="role-badge role-admin">管理员</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- ======== 仪表盘视图 ======== -->
+        <section id="view-dashboard" class="view">
+          <div class="stat-grid" id="stat-grid">
+            <div class="stat-card">
+              <div class="stat-icon">👥</div>
+              <div class="stat-info"><div class="stat-num" id="stat-total">–</div><div class="stat-label">用户总数</div></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">✨</div>
+              <div class="stat-info"><div class="stat-num" id="stat-today">–</div><div class="stat-label">今日新增</div></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🛡️</div>
+              <div class="stat-info"><div class="stat-num" id="stat-admin">–</div><div class="stat-label">管理员</div></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🚫</div>
+              <div class="stat-info"><div class="stat-num" id="stat-disabled">–</div><div class="stat-label">已禁用</div></div>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="glass-card">
+              <div class="card-head">
+                <h3>📈 近 7 天注册趋势</h3>
+              </div>
+              <div id="chart-bar" class="chart-box"></div>
+            </div>
+            <div class="glass-card">
+              <div class="card-head">
+                <h3>🍩 角色分布</h3>
+              </div>
+              <div id="chart-donut" class="chart-box donut-box"></div>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-head">
+              <h3>🕐 最近注册用户</h3>
+            </div>
+            <div id="recent-list" class="recent-list"></div>
+          </div>
+        </section>
+
+        <!-- ======== 用户管理视图 ======== -->
+        <section id="view-users" class="view" hidden>
+          <div class="glass-card">
+            <div class="card-head toolbar">
+              <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="user-search" placeholder="搜索用户名…" />
+              </div>
+              <button class="btn-primary btn-small" id="btn-add-user">＋ 添加用户</button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>用户名</th>
+                    <th>角色</th>
+                    <th>状态</th>
+                    <th>注册时间</th>
+                    <th class="col-actions">操作</th>
+                  </tr>
+                </thead>
+                <tbody id="user-tbody">
+                  <tr><td colspan="5" class="table-empty">加载中…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- ======== 视频管理视图 ======== -->
+        <section id="view-videos" class="view" hidden>
+          <div class="glass-card">
+            <div class="card-head toolbar">
+              <h3>🎬 视频管理</h3>
+              <button class="btn-primary btn-small" id="btn-add-video">＋ 添加视频</button>
+            </div>
+            <div id="video-admin-list">
+              <p class="table-empty">加载中…</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ======== 添加用户模态框 ======== -->
+  <div class="modal-mask" id="modal-add" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3>添加用户</h3>
+        <button class="modal-close" data-close="modal-add">✕</button>
+      </div>
+      <form id="form-add" class="modal-body" novalidate>
+        <div class="field">
+          <label for="add-username">用户名</label>
+          <input type="text" id="add-username" placeholder="2-20 位，字母/数字/下划线/中文" required />
+        </div>
+        <div class="field">
+          <label for="add-password">密码</label>
+          <input type="text" id="add-password" placeholder="至少 6 位" required />
+        </div>
+        <div class="field">
+          <label for="add-role">角色</label>
+          <select id="add-role">
+            <option value="user">普通用户</option>
+            <option value="admin">管理员</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-ghost" data-close="modal-add">取消</button>
+          <button type="submit" class="btn-primary" id="btn-add-submit">添加</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======== 添加视频模态框 ======== -->
+  <div class="modal-mask" id="modal-video" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h3>添加视频</h3>
+        <button class="modal-close" data-close="modal-video">✕</button>
+      </div>
+      <form id="form-video" class="modal-body" novalidate>
+        <div class="field">
+          <label>视频来源</label>
+          <div class="seg">
+            <label class="seg-item"><input type="radio" name="vtype" value="url" checked /> 视频链接</label>
+            <label class="seg-item"><input type="radio" name="vtype" value="file" /> 上传文件</label>
+            <label class="seg-item"><input type="radio" name="vtype" value="external" /> 外链跳转</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="video-title">标题</label>
+          <input type="text" id="video-title" placeholder="视频名称" required />
+        </div>
+        <div class="field">
+          <label for="video-desc">简介（可选）</label>
+          <input type="text" id="video-desc" placeholder="一句话介绍这个视频" />
+        </div>
+        <div class="field">
+          <label for="video-cat">分类</label>
+          <select id="video-cat">
+            <option value="动画">动画</option>
+            <option value="电影">电影</option>
+            <option value="纪录片">纪录片</option>
+            <option value="儿童">儿童</option>
+            <option value="科普">科普</option><option value="游戏">游戏</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="field" id="video-url-field">
+          <label for="video-url" id="video-url-label">视频链接</label>
+          <input type="text" id="video-url" placeholder="https://example.com/video.mp4" />
+        </div>
+        <div class="field" id="video-file-field" hidden>
+          <label for="video-file">选择视频文件（mp4 / webm / ogg，≤100MB）</label>
+          <input type="file" id="video-file" accept="video/mp4,video/webm,video/ogg,.mp4,.webm,.ogv,.ogg" />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-ghost" data-close="modal-video">取消</button>
+          <button type="submit" class="btn-primary" id="btn-video-submit">添加</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 轻提示 -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>视频中心 · 我的账户</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .videos-page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 980px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 26px 16px 40px;
+    }
+
+    .videos-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(16px) saturate(150%);
+      -webkit-backdrop-filter: blur(16px) saturate(150%);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(255, 107, 157, 0.12);
+    }
+
+    .videos-top h1 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-strong);
+      background: linear-gradient(90deg, #ff6b9d, #a78bfa, #ff6b9d);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient-flow 3.5s linear infinite;
+    }
+
+    .videos-top .top-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .top-actions .btn-primary,
+    .top-actions .btn-ghost {
+      letter-spacing: 1px;
+      margin-top: 0;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .video-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(255, 107, 157, 0.12);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.25s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 34px rgba(255, 107, 157, 0.25);
+    }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #ffd6e8, #e4d9ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-thumb .fallback {
+      font-size: 44px;
+      animation: logo-bounce 3s ease-in-out infinite;
+    }
+
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 20, 60, 0.25);
+      transition: background 0.25s;
+    }
+
+    .play-overlay::after {
+      content: '▶';
+      font-size: 30px;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border-radius: 50%;
+      background: rgba(255, 107, 157, 0.85);
+      box-shadow: 0 8px 20px rgba(233, 30, 99, 0.45);
+      padding-left: 4px;
+      transition: transform 0.2s;
+    }
+
+    .cat-chip {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+    }
+
+    .cat-anim { background: linear-gradient(135deg, #ff6b9d, #a78bfa); }
+    .cat-kid { background: linear-gradient(135deg, #ffb03a, #ff6b6b); }
+    .cat-doc { background: linear-gradient(135deg, #0891b2, #22d3ee); }
+    .cat-sci { background: linear-gradient(135deg, #16a34a, #4ade80); }
+    .cat-movie { background: linear-gradient(135deg, #7c3aed, #c026d3); }
+    .cat-other { background: linear-gradient(135deg, #64748b, #94a3b8); }
+
+    .video-card:hover .play-overlay::after {
+      transform: scale(1.12);
+    }
+
+    .video-info {
+      padding: 14px 16px 16px;
+    }
+
+    .video-info .v-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-strong);
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .video-info .v-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 38px;
+    }
+
+    .video-info .v-meta {
+      margin-top: 9px;
+      font-size: 11.5px;
+      color: #b79db0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .type-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .type-badge.url { background: #ffe0ec; color: #e75480; }
+    .type-badge.file { background: #efe4ff; color: #8b5cf6; }
+    .type-badge.ext { background: #e0f2fe; color: #0284c7; }
+
+    .empty-tip {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 60px 0;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 18px;
+      border: 1.5px dashed rgba(255, 255, 255, 0.9);
+    }
+
+    .loading-tip {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 60px 0;
+      font-size: 15px;
+    }
+
+    /* 分类筛选栏 */
+    .cat-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(255, 107, 157, 0.1);
+    }
+
+    .cat-btn {
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--text-muted);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .cat-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(255, 107, 157, 0.15);
+    }
+
+    .cat-btn.active {
+      background: linear-gradient(135deg, #ff8fb8, #c9a6ff);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 14px rgba(255, 107, 157, 0.3);
+    }
+
+    .cat-count {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-left: 2px;
+    }
+
+    @media (max-width: 520px) {
+      .videos-top {
+        flex-wrap: wrap;
+      }
+      .videos-top .top-actions {
+        margin-left: 0;
+        width: 100%;
+      }
+      .top-actions .btn-primary,
+      .top-actions .btn-ghost {
+        flex: 1;
+      }
+    }
+  </style>
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="theme-color" content="#ff6b9d" />
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="videos-page">
+    <header class="videos-top">
+      <h1>🎬 视频中心</h1>
+      <div class="top-actions">
+        <button class="btn-ghost" id="btn-home">🏠 首页</button>
+        <button class="btn-primary" id="btn-logout">退出登录</button>
+      </div>
+    </header>
+
+    <div class="cat-bar" id="cat-bar"></div>
+
+    <div id="video-grid" class="videos-grid">
+      <div class="loading-tip" id="loading-tip">加载中…</div>
+    </div>
+  </main>
+
+  <script src="js/animations.js"></script>
+  <script>
+    (async function () {
+      'use strict';
+
+      // 检查登录状态
+      let me = null;
+      try {
+        const res = await fetch('/api/me', { credentials: 'same-origin' });
+        if (!res.ok) {
+          window.location.href = '/index.html';
+          return;
+        }
+        me = await res.json();
+      } catch {
+        window.location.href = '/index.html';
+        return;
+      }
+
+      document.getElementById('btn-home').addEventListener('click', () => {
+        window.location.href = me.role === 'admin' ? '/admin.html' : '/welcome.html';
+      });
+
+      document.getElementById('btn-logout').addEventListener('click', async () => {
+        await fetch('/api/logout', { method: 'POST', credentials: 'same-origin' });
+        window.location.href = '/index.html';
+      });
+
+      // 加载视频列表
+      let videos = [];
+      try {
+        const res = await fetch('/api/videos', { credentials: 'same-origin' });
+        const data = await res.json();
+        videos = data.videos || [];
+      } catch { /* 保持空 */ }
+
+      const grid = document.getElementById('video-grid');
+      const loadingTip = document.getElementById('loading-tip');
+      const catBar = document.getElementById('cat-bar');
+
+      const CAT_ORDER = ['全部', '动画', '电影', '纪录片', '儿童', '科普', '游戏', '其他'];
+      let currentCat = '全部';
+
+      function esc(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+        }[c]));
+      }
+      function escAttr(s) { return esc(s); }
+
+      // 分类筛选栏
+      function renderCats() {
+        const counts = {};
+        videos.forEach((v) => {
+          const c = v.category || '其他';
+          counts[c] = (counts[c] || 0) + 1;
+        });
+        const cats = CAT_ORDER.filter((c) => c === '全部' || counts[c]);
+        catBar.innerHTML = cats
+          .map((c) => {
+            const n = c === '全部' ? videos.length : counts[c];
+            return `<button class="cat-btn ${c === currentCat ? 'active' : ''}" data-cat="${esc(c)}">${esc(c)}<span class="cat-count">${n}</span></button>`;
+          })
+          .join('');
+        catBar.querySelectorAll('.cat-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            currentCat = btn.dataset.cat;
+            renderCats();
+            renderGrid();
+          });
+        });
+      }
+
+      // 卡片渲染
+      function renderGrid() {
+        const filtered = currentCat === '全部'
+          ? videos
+          : videos.filter((v) => (v.category || '其他') === currentCat);
+
+        if (!filtered.length) {
+          grid.innerHTML = '<div class="empty-tip">该分类下暂无视频～</div>';
+          return;
+        }
+
+        grid.innerHTML = filtered
+          .map((v) => {
+            const isExt = v.type === 'external';
+            const href = isExt ? escAttr(v.url) : `/video-play.html?id=${encodeURIComponent(v.id)}`;
+            const target = isExt ? ' target="_blank" rel="noopener"' : '';
+            const badgeCls = v.type === 'file' ? 'file' : v.type === 'external' ? 'ext' : 'url';
+            const badgeText = v.type === 'file' ? '本站视频' : v.type === 'external' ? '外链' : '网络视频';
+            const catCls = (v.category || '其他') === '动画' ? 'cat-anim'
+              : (v.category || '其他') === '儿童' ? 'cat-kid'
+              : (v.category || '其他') === '纪录片' ? 'cat-doc'
+              : (v.category || '其他') === '科普' ? 'cat-sci'
+              : (v.category || '其他') === '电影' ? 'cat-movie' : 'cat-other';
+            return `
+            <a class="video-card" href="${href}"${target}>
+              <div class="video-thumb">
+                <span class="fallback">${isExt ? '🔗' : '🎬'}</span>
+                ${isExt ? '' : `<video src="${escAttr(v.url)}" preload="metadata" muted playsinline></video>`}
+                <div class="play-overlay"></div>
+                <span class="cat-chip ${catCls}">${esc(v.category || '其他')}</span>
+              </div>
+              <div class="video-info">
+                <div class="v-title">${esc(v.title)}</div>
+                <div class="v-desc">${esc(v.description || '暂无简介')}</div>
+                <div class="v-meta">
+                  <span class="type-badge ${badgeCls}">${badgeText}</span>
+                  <span>${v.addedBy === 'system' ? '系统预置' : esc(v.addedBy)}</span>
+                </div>
+              </div>
+            </a>`;
+          })
+          .join('');
+
+        // 视频封面：尝试取第一帧
+        grid.querySelectorAll('.video-thumb video').forEach((video) => {
+          const tryFrame = () => {
+            try {
+              if (video.readyState >= 1 && video.videoWidth > 0) {
+                video.currentTime = 0.1;
+              }
+            } catch { /* 跨域限制时忽略 */ }
+          };
+          video.addEventListener('loadedmetadata', tryFrame);
+          video.addEventListener('loadeddata', tryFrame);
+          video.addEventListener('error', () => { video.remove(); });
+        });
+      }
+
+      if (!videos.length) {
+        loadingTip.textContent = '📭 暂无视频，等管理员添加吧～';
+        loadingTip.classList.add('empty-tip');
+        return;
+      }
+
+      loadingTip.remove();
+      renderCats();
+      renderGrid();
+    })();
+  </script>
+  <script src="js/pwa.js"></script>
+</body>
+</html>
