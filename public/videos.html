@@ -311,6 +311,10 @@
     (async function () {
       'use strict';
 
+      // 是否运行在 App（WebView）内：外链不弹新窗口，改为当前页跳转，
+      // 由 App 端拦截域名并交给系统浏览器打开
+      const IS_APP = /wv|dsh-app|WebView/i.test(navigator.userAgent);
+
       // 检查登录状态
       let me = null;
       try {
@@ -394,7 +398,8 @@
           .map((v) => {
             const isExt = v.type === 'external';
             const href = isExt ? escAttr(v.url) : `/video-play.html?id=${encodeURIComponent(v.id)}`;
-            const target = isExt ? ' target="_blank" rel="noopener"' : '';
+            // 浏览器里外链新标签打开；App 内当前页跳转（由 App 拦截后交系统浏览器）
+            const target = isExt && !IS_APP ? ' target="_blank" rel="noopener"' : '';
             const badgeCls = v.type === 'file' ? 'file' : v.type === 'external' ? 'ext' : 'url';
             const badgeText = v.type === 'file' ? '本站视频' : v.type === 'external' ? '外链' : '网络视频';
             const catCls = (v.category || '其他') === '动画' ? 'cat-anim'
