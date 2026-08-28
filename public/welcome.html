@@ -179,7 +179,11 @@
       const loading = document.getElementById('loading');
 
       try {
-        const res = await fetch('/api/me', { credentials: 'same-origin' });
+        // 15 秒超时：防止云端冷启动或网络异常时无限"正在验证"
+        const ctrl = new AbortController();
+        const timeout = setTimeout(() => ctrl.abort(), 15000);
+        const res = await fetch('/api/me', { credentials: 'same-origin', signal: ctrl.signal });
+        clearTimeout(timeout);
         if (!res.ok) {
           // 未登录，跳回登录页
           window.location.href = '/index.html';
@@ -192,7 +196,7 @@
         loading.hidden = true;
         content.hidden = false;
       } catch {
-        loading.textContent = '网络错误，无法验证登录状态';
+        loading.textContent = '网络错误或连接超时，请检查服务器地址后重试';
       }
 
       document.getElementById('btn-logout').addEventListener('click', async () => {
